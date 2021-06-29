@@ -1,11 +1,14 @@
 import React from 'react';
+import Form from "./Form";
+import List from "./List";
 
-function Form(props) {
+function Main(props) {
     return (
         <div>
-            1
+            <Form />
+            <List />
         </div>
     );
 }
 
-export default Form;
+export default Main;
