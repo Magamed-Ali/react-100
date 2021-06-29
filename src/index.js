@@ -5,7 +5,7 @@ import App from './App';
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 
-const initialState = {
+const initState = {
     darkTheme: true,
     openedCitizen: null,
     citizens: [
@@ -28,7 +28,7 @@ const initialState = {
     ]
 }
 
-const reduser = (state = initialState, action) =>{
+const reduser = (state = initState, action) =>{
     switch (action.type){
         case 'open':
             return {
