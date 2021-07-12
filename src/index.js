@@ -24,29 +24,49 @@ const initState = {
             history: " Lorem - часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века",
             address: "Волгоград",
             sideEffects: null
+        },
+        {
+            name: 'Петров И. .И.',
+            age: 78,
+            stage: 0,
+            history: " Lorem - часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века",
+            address: "Волгоград",
+            sideEffects: "adsfasdf"
         }
     ]
 }
 
-const reduser = (state = initState, action) =>{
-    switch (action.type){
+
+
+const reduser = (state = initState, action) => {
+
+    switch (action.type) {
         case 'open':
             return {
                 ...state,
                 openedCitizen: action.payload
             }
+        case  'ADDUSERS':
+            return {
+                ...state,
+                citizens: [...state.citizens, action.payload]
+            }
+        case 'remuve':
+            return {
+                ...state,
+                citizens:action.payload
+            }
         default:
-
+            return state
     }
-
 }
 
 const store = createStore(reduser)
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-        <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
