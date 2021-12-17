@@ -6,7 +6,6 @@ function List() {
     const dispatch = useDispatch();
 
     const citizens = useSelector(state => state.citizens);
-
     const getFrindlyValueOfStage = (stage) => {
         switch (stage) {
             case 0:
@@ -27,16 +26,17 @@ function List() {
             payload: index
         })
     }
-    const deleteUserForm = (indexRemove)=>{
+    const deleteUserForm = (indexRemove) => {
         const filtred = citizens.filter((_, index) => indexRemove !== index)
 
         dispatch({
             type: 'remuve',
             payload: filtred
         })
+        debugger;
     }
 
-    if(!citizens) {
+    if (!citizens) {
         return null;
     }
 
@@ -45,7 +45,7 @@ function List() {
             <div>
                 {citizens.map((citizen, index) => {
                     return (
-                        <div key={index} className="row  p-1 border d-flex" >
+                        <div key={index} className="row  p-1 border d-flex">
                             <div className="col-11 d-flex" onClick={() => hendleOpen(index)}>
                                 <div className="col-1">
                                     {index + 1}

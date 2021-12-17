@@ -54,7 +54,7 @@ const reduser = (state = initState, action) => {
         case 'remuve':
             return {
                 ...state,
-                citizens:action.payload
+                citizens: action.payload
             }
         default:
             return state
